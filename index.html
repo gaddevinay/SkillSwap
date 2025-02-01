@@ -1,0 +1,123 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skill Swap</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <p>Skill Swap</p>
+      </div>
+      <div class="nav-right">
+        <div class="logout">
+          <button><a href="./login.html">Logout</a></button>
+        </div>
+      </div>
+    </nav>
+
+    <aside class="sidebar">
+      <div id="profile-image" class="small-profile">
+        <img src="./images/profile-icon-png-898.png" alt="Profile Picture" />
+      </div>
+      <ul>
+        <li><i class="bx bx-home"></i> Home</li>
+        <li><i class="bx bx-search"></i> Find a Partner</li>
+        <li><i class="bx bx-message"></i> Messages</li>
+        <li><i class="bx bx-user-circle"></i> Profile</li>
+      </ul>
+    </aside>
+    <main>
+      <section class="home">
+        <h1>Welcome to Skill Swap!</h1>
+        <p>Exchange skills with people around the world.</p>
+        <button id="exploreBtn">Explore Skills</button>
+      </section>
+
+      <section class="skill-list" id="skillList">
+        <h2>Available Partners</h2>
+
+        <!-- Search Bar -->
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search skills..."
+          onkeyup="searchSkills()"
+        />
+
+        <div class="skills-container" id="skillsContainer">
+          <!-- Users will be dynamically added here -->
+        </div>
+      </section>
+
+      <!-- Messages Section -->
+      <section class="messages" id="messages">
+        <h2>Chats</h2>
+
+        <!-- Chat Header (User's chat with a partner) -->
+        <div class="chat-header">
+          <h3>Chat with Alice</h3>
+        </div>
+
+        <!-- Message Display Area -->
+        <div class="message-container" id="messageContainer">
+          <!-- Messages will be dynamically added here -->
+        </div>
+
+        <!-- New Message Input -->
+        <div class="message-input">
+          <input
+            type="text"
+            id="messageInput"
+            placeholder="Type a message..."
+          />
+          <button id="sendMessageBtn">Send</button>
+        </div>
+      </section>
+      <section class="profile" id="profile">
+        <h2>Your Profile</h2>
+      
+        <!-- Profile Picture and Name -->
+        <div class="profile-info">
+          <div id="profile-image" class="profile-image">
+            <img src="./images/profile-icon-png-898.png" alt="Profile Picture" />
+          </div>
+          <div class="profile-details">
+            <h3 id="userName">Your Name</h3>
+            <button id="editProfileBtn">Edit Profile</button>
+          </div>
+        </div>
+      
+        <!-- Skills Section -->
+        <div class="skills-section">
+          <h3>My Skills</h3>
+          <ul id="skillsList">
+            <!-- Dynamically added skills will appear here -->
+          </ul>
+          <button id="addSkillBtn">Add New Skill</button>
+          <div class="skill-input" id="skillInputSection" style="display: none;">
+            <input type="text" id="newSkillInput" placeholder="Enter new skill" />
+            <button id="saveSkillBtn">Save</button>
+            <button id="cancelSkillBtn">Cancel</button>
+          </div>
+        </div>
+      
+        <!-- Recent Partners History Section -->
+        <div class="partners-history">
+          <h3>Recent Partners</h3>
+          <ul id="partnersList">
+            <!-- Recent partners will be dynamically added here -->
+          </ul>
+        </div>
+      </section>
+      
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

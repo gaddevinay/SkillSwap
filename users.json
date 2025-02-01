@@ -1,0 +1,132 @@
+[
+    {
+        "name": "Abhi",
+        "skills": ["Graphic Design", "UI/UX Design"],
+        "location": "New York"
+    },
+    {
+        "name": "Chaithanya",
+        "skills": ["Web Development", "Mobile App Development"],
+        "location": "San Francisco"
+    },
+    {
+        "name": "Praneeth",
+        "skills": ["Photography", "Video Editing"],
+        "location": "London"
+    },
+    {
+        "name": "Ganesh",
+        "skills": ["Cooking", "Baking"],
+        "location": "Paris"
+    },
+    {
+        "name": "Eswar",
+        "skills": ["Data Analysis", "Machine Learning"],
+        "location": "Berlin"
+    },
+    {
+        "name": "Frank",
+        "skills": ["Java Development", "Spring Boot"],
+        "location": "Los Angeles"
+    },
+    {
+        "name": "Grace",
+        "skills": ["Digital Marketing", "SEO"],
+        "location": "Miami"
+    },
+    {
+        "name": "Henry",
+        "skills": ["Cybersecurity", "Ethical Hacking"],
+        "location": "Toronto"
+    },
+    {
+        "name": "Isla",
+        "skills": ["Creative Writing", "Editing"],
+        "location": "Edinburgh"
+    },
+    {
+        "name": "Jack",
+        "skills": ["Machine Learning", "Data Science"],
+        "location": "Sydney"
+    },
+    {
+        "name": "Kim",
+        "skills": ["Marketing Strategy", "Content Creation"],
+        "location": "Berlin"
+    },
+    {
+        "name": "Liam",
+        "skills": ["Software Development", "Database Design"],
+        "location": "Bangalore"
+    },
+    {
+        "name": "Mona",
+        "skills": ["Video Production", "Photography"],
+        "location": "Los Angeles"
+    },
+    {
+        "name": "Nina",
+        "skills": ["JavaScript", "React.js"],
+        "location": "San Francisco"
+    },
+    {
+        "name": "Oscar",
+        "skills": ["Python", "Data Analysis"],
+        "location": "London"
+    },
+    {
+        "name": "Paul",
+        "skills": ["Ruby on Rails", "Web Development"],
+        "location": "Chicago"
+    },
+    {
+        "name": "Quincy",
+        "skills": ["Graphic Design", "Branding"],
+        "location": "Berlin"
+    },
+    {
+        "name": "Riley",
+        "skills": ["Mobile App Development", "Flutter"],
+        "location": "Singapore"
+    },
+    {
+        "name": "Sophia",
+        "skills": ["Public Speaking", "Event Management"],
+        "location": "New York"
+    },
+    {
+        "name": "Tyler",
+        "skills": ["Cloud Computing", "AWS"],
+        "location": "San Francisco"
+    },
+    {
+        "name": "Uma",
+        "skills": ["Artificial Intelligence", "Computer Vision"],
+        "location": "Boston"
+    },
+    {
+        "name": "Vera",
+        "skills": ["Content Writing", "SEO"],
+        "location": "Toronto"
+    },
+    {
+        "name": "Will",
+        "skills": ["Mobile App Development", "Swift"],
+        "location": "Vancouver"
+    },
+    {
+        "name": "Xander",
+        "skills": ["Game Development", "Unity"],
+        "location": "Los Angeles"
+    },
+    {
+        "name": "Yara",
+        "skills": ["Illustration", "Animation"],
+        "location": "Tokyo"
+    },
+    {
+        "name": "Zane",
+        "skills": ["Photography", "Web Design"],
+        "location": "Paris"
+    }
+]

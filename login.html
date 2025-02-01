@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Skill Exchange</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a, #1c1c1e); /* Updated background gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff; /* Changed text color to white */
+        }
+        .container {
+            background: rgba(28, 28, 30, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 40px 60px 40px 40px;
+            border-radius: 8px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        input, button {
+            width: 100%;
+            padding: 14px;
+            margin: 12px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            color: #333; /* Input text color */
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .form-toggle {
+            display: none;
+        }
+        a {
+            color: #0a84ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="loginContainer">
+        <!-- Login Form (Default View) -->
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Email address" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        
+        <p>New to Skill Exchange? <a href="#" id="goToSignup">Create an account</a></p>
+    </div>
+
+    <div class="container form-toggle" id="signupContainer">
+        <!-- Sign-Up Form -->
+        <h2>Create Account</h2>
+        <form id="signupForm">
+            <input type="text" id="signupName" placeholder="Full Name" required>
+            <input type="email" id="signupEmail" placeholder="Email address" required>
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <p>Already have an account? <a href="#" id="goToLogin">Login</a></p>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your User ID
+        emailjs.init('user_abc123XYZ');  // Replace this with your actual User ID
+
+        const registeredUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Toggle between login and signup
+        document.getElementById('goToLogin').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('signupContainer').classList.add('form-toggle');
+            document.getElementById('loginContainer').classList.remove('form-toggle');
+        });
+
+        document.getElementById('goToSignup').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('loginContainer').classList.add('form-toggle');
+            document.getElementById('signupContainer').classList.remove('form-toggle');
+        });
+
+        // Signup Form Submission
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Check if email already exists
+            if (registeredUsers.some(user => user.email === email)) {
+                alert("Email already exists. Please login.");
+                return;
+            }
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return;
+            }
+
+            // Register the user
+            const newUser = { email, password };
+            registeredUsers.push(newUser);
+            localStorage.setItem('users', JSON.stringify(registeredUsers));
+
+            // Send the email notification with a verification link
+            sendVerificationEmail(email);
+
+            alert("Successfully registered! Please check your email for verification.");
+
+            // Redirect to the login page after registration
+            setTimeout(() => {
+                document.getElementById('signupContainer').classList.add('form-toggle');
+                document.getElementById('loginContainer').classList.remove('form-toggle');
+            }, 1000);
+        });
+
+        function sendVerificationEmail(email) {
+            const verificationLink = `https://yourwebsite.com/verify?email=${encodeURIComponent(email)}`;
+            const templateParams = {
+                user_email: email,
+                verification_link: verificationLink,
+                message: 'Thank you for signing up! Please verify your email by clicking the link below:'
+            };
+
+            emailjs.send('service_72jb6gu', 'template_abc123', templateParams)  // Updated with your service ID
+                .then(function(response) {
+                    console.log('Email sent successfully:', response);
+                }, function(error) {
+                    console.error('Error sending email:', error);
+                });
+        }
+
+        // Login Form Submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Find the user with matching credentials
+            const user = registeredUsers.find(user => user.email === email && user.password === password);
+
+            if (user) {
+                alert("Login successful!");
+                // Redirect to the home page or dashboard
+                window.location.href = "index.html";  // Adjust to your URL
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>
